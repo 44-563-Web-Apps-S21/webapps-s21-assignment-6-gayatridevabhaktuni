@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <title>hidden page</title>
+    <h1>Hidden things by Gayatri Devabhaktuni</h1>
+ 
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_secret">Enter the secret word </label>
+    <input type ="password" id="form1_secret" name="form1_secret"  value="secret"> <br>
+
+    <label for="form1_guess">Enter a guess </label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+let correct = 0
+let wrong = 0
+
+
+function processGuess (){
+    console.log("Getting form values")
+    secret = document.getElementById("form1_secret").value
+    guess = document.getElementById("form1_guess").value
+    
+    //confirmed = confirm("Are these the values? "+secret+" and "+guess)
+     //result = secret.localeCompare(guess);
+    out = document.getElementById("result")
+    
+    if(secret == guess){
+        correct ++
+        alert("congatulations!!")
+        out.innerHTML = "correct score"+correct
+    } else {
+        wrong++
+        alert ("Sorry!")
+        out.innerHTML ="wrong score"+ wrong
+    }
+    out.innerHTML = "correct count"+ correct +" ; wrong count "+ wrong
+}
+</script>
+
+</body>
+</html> 
