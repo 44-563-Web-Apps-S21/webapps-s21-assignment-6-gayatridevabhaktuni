@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
     <title>hidden page</title>
-    <h1>Hidden things by Gayatri Devabhaktuni</h1>
+    <h1>Pass phrase by Gayatri Devabhaktuni</h1>
  
 <body>
 
 <h2>Getting input</h2>
 
 <form>
-    <label for="form1_secret">Enter the secret word </label>
-    <input type ="password" id="form1_secret" name="form1_secret"  value="secret"> <br>
+    <label for="form1_secret"> Enter the secret phrase</label>
+    <input type ="password" id="form1_secret" name="form1_secret"  value="Let me in"> <br>
 
-    <label for="form1_guess">Enter a guess </label>
+    <label for="form1_guess">Enter a phrase </label>
     <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
 
-    <input type="button" onclick="processGuess()" value="check the guess">
+    <input type="button" onclick="processPhrase()" value="check the phrase">
 </form>
 
 
 <p id="result">This text will be replaced </p>
 
 <script> 
-let correct = 0
-let wrong = 0
+var correct = 0
+var wrong = 0
 
 
-function processGuess (){
+function processPhrase (){
     console.log("Getting form values")
     secret = document.getElementById("form1_secret").value
     guess = document.getElementById("form1_guess").value
@@ -36,16 +36,46 @@ function processGuess (){
     
     if(secret == guess){
         correct ++
-        alert("congatulations!!")
+        alert("Access allowed!")
         out.innerHTML = "correct score"+correct
     } else {
         wrong++
-        alert ("Sorry!")
+        alert ("Access denied!")
         out.innerHTML ="wrong score"+ wrong
     }
     out.innerHTML = "correct count"+ correct +" ; wrong count "+ wrong
 }
 </script>
+<div class ="container">
+    <img src ="deer.jpg" width="200" height="200"  onclick="newImage()" id="image" >
+    <br>
+    <!-- <input type="button" onclick="rotateImage()" id="image"> -->
+    <script>
+        var usingImage = 1
+        function newImage(){
+            switch(usingImage ){
+                case 1:
+                  //  var img = document.createElement("img")
+                    //img.src = "deer.jpg"
+                    document.getElementById("image").src = "deer.jpg"
+                    usingImage = 2
+                    break
+                case 2:
+                    //var img1 = document.createElement("img1")
+                    //img1.src = "elk.jpg"
+                    document.getElementById("image").src = "elk.jpg"
+                    usingImage = 3
+                    break
+                case 3:
+                    document.getElementById("image").src = "vaquita.jpg"
+                    usingImage = 1
+                    break
+                }
+
+        }
+    </script>
+
+</div>
 
 </body>
 </html> 
